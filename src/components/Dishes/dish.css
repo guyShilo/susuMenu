@@ -1,0 +1,59 @@
+.flex-container {
+    flex-wrap: wrap;
+    border: 1px solid grey;
+    box-shadow: 0px 0px 26px 21px rgba(0,0,0,0.14);
+    padding: 10px;
+    border-radius: 9px;
+    color: white;
+    background-image: radial-gradient( circle farthest-corner at -4% -12.9%,  rgba(74,98,110,1) 0.3%, rgba(30,33,48,1) 90.2% );
+    box-shadow: 0px 0px 23px 17px rgba(0,0,0,0.09);
+}
+
+.dish-title {
+    align-self: flex-start;
+    color: white;
+}
+
+.dishContainer button {
+    display: flex;
+    justify-content: flex-end;
+    background: transparent;
+    border: none;
+}
+
+.dish-title h2 {
+    font-size: 50px
+}
+
+.dishContainer {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.dish-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.descriptionFlex p {
+    border: 2px solid lightblue;
+    border-radius:5px;
+    margin: 2px;
+    padding: 10px;
+}
+
+.branch-box h4 {
+    color: springgreen;
+    font-family: 'Secular One', sans-serif;
+    font-size: 32px;
+}
+
+.branch-box button:hover {
+    box-shadow: 0px 0px 23px 17px rgba(0,0,0,0.09);
+}
+
+.flex-container label {
+    font-weight: bold;
+}
