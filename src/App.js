@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import Header from "./components/Header";
 import DishLogic from './components/Dishes/DishLogic';
@@ -15,8 +15,8 @@ import Login from './components/Login'
 import history from './history'
 import ConfirmDish from './components/Dishes/ConfirmDish';
 import NoMatch from './NoMatch';
-import GoBack from './components/goBack';
 import { BurgerTops } from './components/Dishes/BurgerTops';
+import { Main } from './Main';
 
 
 function App() {
@@ -45,6 +45,12 @@ function App() {
           <Route path="/addBranch" component={BranchForm} />
           <Route path="/login" exact strict render={() => {
             return (<Login />)
+          }} />
+          <Route path="/" exact strict render={() => {
+            return (<>
+              <Header/>
+              <Main />
+            </>)
           }} />
           <NoMatch />
         </Switch>

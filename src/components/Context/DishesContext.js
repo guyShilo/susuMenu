@@ -5,7 +5,7 @@ let DishesContext = React.createContext({dishesStorage: returnArray()});
 
 async function returnArray() {
     let dishes = [];
-    await axios.get(`http://localhost:8080/dishes`)
+    await axios.get(`/dishes`)
     .then(res => {
         dishes = res.data.data
     })

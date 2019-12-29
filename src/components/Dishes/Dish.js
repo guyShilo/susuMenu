@@ -22,6 +22,7 @@ const Dish = ({ dishObj }) => {
     const loginContext = useContext(UserContext)
 
     const history = useHistory()
+    console.log(dishState._id)
 
     // Defining Styles for editing mode
     const editStyle = {

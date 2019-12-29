@@ -1,4 +1,4 @@
-import React, { useHistory, useState, useContext, useEffect } from "react";
+import React, {useState, useContext, useEffect } from "react";
 import Dish from './Dish'
 import './dishLogic.css'
 import { Link } from 'react-router-dom'
@@ -31,7 +31,6 @@ const DishLogic = () => {
     const searchSomething = (term) => {
         const result = dishesState.dishesStorage.filter(dish => dish.dishTitle.indexOf(term) != -1);
         if (!term[0]) {
-            console.log('changed back')
             setFilteredState({
                 filteredStorage: dishesState.dishesStorage.filter(dish => dish.isExtra != true )
             })
@@ -53,7 +52,6 @@ const DishLogic = () => {
             <span className="sr-only">Loading...</span>
         </div>
     }
-    console.log(dishesState)
     return (
         <>
         <div className="container">
