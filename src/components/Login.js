@@ -25,7 +25,7 @@ const Login = (props) => {
         initialPassword: null
     })
     const fetchData = async () => {
-        let request = axios.get(`http://localhost:8080/users`);
+        let request = axios.get(`https://susu-menu.herokuapp.com/users`);
         let response = await request;
         setuserState({
             loginDetails: {

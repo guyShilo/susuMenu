@@ -49,7 +49,7 @@ const Branches = () => {
     return (
         <MuiThemeProvider>
             <div className="container">
-                <div className="bounceInRight delay-1s animated">
+                <div className="bounceInRight delay-1s animated"    >
                     <Search
                         searchSomething={searchSomething}
                         searchColor={'springgreen'}

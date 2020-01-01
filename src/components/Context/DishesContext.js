@@ -5,7 +5,7 @@ let DishesContext = React.createContext({dishesStorage: returnArray()});
 
 async function returnArray() {
     let dishes = [];
-    await axios.get(`/dishes`)
+    await axios.get(`https://susu-menu.herokuapp.com/dishes`)
     .then(res => {
         dishes = res.data.data
     })
