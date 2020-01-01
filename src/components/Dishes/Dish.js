@@ -54,7 +54,7 @@ const Dish = ({ dishObj }) => {
     // Executing delte request to NodeJS server.
     const deleteFromDB = () => {
         const result = window.confirm('Are you sure you want to DELETE', false)
-        axios.delete(`http://localhost:8080/dishes/deleteDishes/${dishState._id}`)
+        axios.delete(`https://susu-menu.herokuapp.com/dishes/deleteDishes/${dishState._id}`)
             .then(res => {console.log(res)})
             .catch(err => {
                 console.log(err)
@@ -78,7 +78,7 @@ const Dish = ({ dishObj }) => {
     const handleEditable = e => {
         setEditable(false)
         const result = window.confirm('Are you sure you want to EDIT?', false)
-        axios.put(`http://localhost:8080/dishes/patchDishes/${id}`, {
+        axios.put(`https://susu-menu.herokuapp.com/dishes/patchDishes/${id}`, {
             dishTitle: refTitle.current.innerHTML,
             dishDescription: refDescription.current.innerHTML,
             dishAllergic: refAllergic.current.innerHTML,

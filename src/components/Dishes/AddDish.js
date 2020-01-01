@@ -76,7 +76,7 @@ const AddDish = ({ handleChange, values, nextStep }) => {
                                 inputStyle={inputStyle.textColor}
                                 floatingLabelText="הכנס רכיבים אלרגניים"
                                 onChange={handleChange('dishAllergic')}
-                                defaultValue={values.dishAllergic} />
+                                defaultValue={values.dishAllergic || ''} />
                             <br />
                         </div>
                         <div className="col-sm-4">
@@ -89,7 +89,7 @@ const AddDish = ({ handleChange, values, nextStep }) => {
                                 inputStyle={inputStyle.textColor}
                                 floatingLabelText="הכנס אריזה במשלוח"
                                 onChange={handleChange('dishDelivery')}
-                                defaultValue={values.dishDelivery} />
+                                defaultValue={values.dishDelivery || ''} />
                             <br />
                         </div>
                         <div className="col-sm-4">
@@ -102,7 +102,7 @@ const AddDish = ({ handleChange, values, nextStep }) => {
                                 inputStyle={inputStyle.textColor}
                                 floatingLabelText="הכנס מחיר"
                                 onChange={handleChange('dishPrice')}
-                                defaultValue={values.dishPrice || null} />
+                                defaultValue={values.dishPrice || ''} />
                             <br />
                         </div>
                         <div className="col-sm-4">
@@ -115,7 +115,7 @@ const AddDish = ({ handleChange, values, nextStep }) => {
                                 inputStyle={inputStyle.textColor}
                                 floatingLabelText="הכנס תמונה"
                                 onChange={handleChange('dishImage')}
-                                defaultValue={values.dishImage || null} />
+                                defaultValue={values.dishImage || ''} />
                             <br />
                         </div>
                         <div className="text-center col-sm-12 ">

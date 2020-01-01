@@ -17,7 +17,7 @@ const Confirm = ({ values, state, prevStep }) => {
     // Executing post request to NodeJS server.
     const postToDB = async () => {
         axios
-            .post(`http://localhost:8080/dishes/createDish`,
+            .post(`https://susu-menu.herokuapp.com/dishes/createDish`,
                 {
                     dishTitle: dishTitle,
                     dishDescription: dishDescription,

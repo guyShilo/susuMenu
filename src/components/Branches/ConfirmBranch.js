@@ -16,7 +16,7 @@ const ConfirmBranch = ({ values, state, prevStep }) => {
     // Executing post request to NodeJS server.
     const postToBranchDB = () => {
         axios
-            .post(`http://localhost:8080/branches/createBranch`,
+            .post(`https://susu-menu.herokuapp.com/branches/createBranch`,
                 {
                     branchName: branchName,
                     branchAddress: branchAddress,

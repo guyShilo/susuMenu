@@ -54,7 +54,7 @@ const EachBranch = ({ branchObj }) => {
     // Executing delte request to NodeJS server.
     const deleteFromDB = () => {
         const result = window.confirm('Are you sure you want to DELETE', false)
-        axios.delete(`http://localhost:8080/branches/deleteBranches/${id}`)
+        axios.delete(`https://susu-menu.herokuapp.com/branches/deleteBranches/${id}`)
             .then(res => { console.log(res) })
             .catch(err => {
                 console.log(err)
@@ -80,7 +80,7 @@ const EachBranch = ({ branchObj }) => {
     // Handling post method after editable change
     const handleEditable = e => {
         const result = window.confirm('Are you sure you want to EDIT?', false)
-        axios.put(`http://localhost:8080/branches/patchBranches/${id}`, {
+        axios.put(`https://susu-menu.herokuapp.com/branches/patchBranches/${id}`, {
             branchName: refName.current.innerHTML,
             branchAddress: refAddress.current.innerHTML,
             branchOpening: refOpening.current.innerHTML,

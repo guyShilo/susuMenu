@@ -9,7 +9,7 @@ const DishExtras = () => {
     const [ExtraDishes, setExtraDishes] = useState([])
 
     const fetchByQuery = async () => {
-        const dishes = axios.get(`http://localhost:8080/dishes/getExtra?isExtra=${true}`);
+        const dishes = axios.get(`https://susu-menu.herokuapp.com/dishes/getExtra?isExtra=${true}`);
         const response = await dishes
         setExtraDishes(response.data.data)
     }
