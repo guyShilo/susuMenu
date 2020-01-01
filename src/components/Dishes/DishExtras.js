@@ -6,6 +6,7 @@ import GoBack from '../goBack';
 
 
 const DishExtras = () => {
+    document.title = 'Susu & Sons | תוספות'
     const [ExtraDishes, setExtraDishes] = useState([])
 
     const fetchByQuery = async () => {

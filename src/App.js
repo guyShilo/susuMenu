@@ -23,6 +23,7 @@ function App() {
   return (
     <Router history={history}>
       <div className="App app-container">
+        <Header/>
         <Switch>
           <Route path="/DishExtras" component={DishExtras} />
           <Route path="/addDish" component={DishForm} />
@@ -30,14 +31,12 @@ function App() {
           <Route path="/BurgerTops" component={BurgerTops} />
           <Route path="/dishes" render={() => {
             return (<>
-              <Header />
               <DishLogic />
             </>
             )
           }} />
           <Route path="/branches" exact strict render={() => {
             return (<>
-              <Header />
               <Branches />
             </>
             )
@@ -48,7 +47,6 @@ function App() {
           }} />
           <Route path="/" exact strict render={() => {
             return (<>
-              <Header/>
               <Main />
             </>)
           }} />

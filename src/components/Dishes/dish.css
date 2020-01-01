@@ -21,10 +21,6 @@
     border: none;
 }
 
-.dish-title h2 {
-    font-size: 50px
-}
-
 .dishContainer {
     display: flex;
     justify-content: center;

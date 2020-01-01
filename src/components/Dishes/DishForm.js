@@ -4,6 +4,7 @@ import Confirm from './ConfirmDish'
 
 
 const DishForm = () => {
+    document.title = 'Susu & Sons | הוסף מנה'
     // Setting a default state for the form component
     const [dishFormState, setDishFormState] = useState({
         step: 0,
@@ -22,6 +23,16 @@ const DishForm = () => {
                 ...dishFormState,
                 [input]: e.target.value,
             });
+        let validateArray = []
+        validateArray.push({[input]: e.target.value})
+        validateArray.forEach(element => {
+            if(element){
+                console.log('full')
+            }
+            else {
+                console.log('you forgot')
+            }
+        })
     }
     // Handling 'Next Step' button by updating the state.
     const nextStep = () => {

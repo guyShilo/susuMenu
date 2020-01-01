@@ -11,7 +11,6 @@ import { CRUD } from "../CRUD";
 
 const Dish = ({ dishObj }) => {
     const { title, description, price, img, sizes, allergic, rest, delivery, id } = dishObj;
-
     // Setting up the Dish State
     const [dishState, setDishState] = useState(dishObj)
     // Setting up the Editable Content State, if True, the content will become Editable
@@ -22,7 +21,6 @@ const Dish = ({ dishObj }) => {
     const loginContext = useContext(UserContext)
 
     const history = useHistory()
-    console.log(dishState._id)
 
     // Defining Styles for editing mode
     const editStyle = {
@@ -49,7 +47,6 @@ const Dish = ({ dishObj }) => {
         if (editMode) {
             alert('You are out of EDIT Mode')
         }
-
     }
     // Executing delte request to NodeJS server.
     const deleteFromDB = () => {
@@ -78,7 +75,7 @@ const Dish = ({ dishObj }) => {
     const handleEditable = e => {
         setEditable(false)
         const result = window.confirm('Are you sure you want to EDIT?', false)
-        axios.put(`https://susu-menu.herokuapp.com/dishes/patchDishes/${id}`, {
+        axios.put(`https://susu-menu.herokuapp.com/dishes/patchDishes/${dishState._id}`, {
             dishTitle: refTitle.current.innerHTML,
             dishDescription: refDescription.current.innerHTML,
             dishAllergic: refAllergic.current.innerHTML,
@@ -96,11 +93,12 @@ const Dish = ({ dishObj }) => {
             })
         if (result) {
             alert('Edited')
+            setEditMode(false)
         }
     }
     return (
         <div className=" dishContainer m-2 bounceInUp animated ">
-            <div className="flex-container text-light  text-center w-75 " >
+            <div className="flex-container text-light  text-center w-100 " >
                 <div className="d-flex flex-row-reverse">
                     <button onClick={exitFromEditMode} style={!editMode ? editStyle.buttonNone
                         : { background: 'none', border: 'none', outlineColor: 'white' }}>
@@ -150,7 +148,7 @@ const Dish = ({ dishObj }) => {
                     </div>
                     <hr className="bounceInRight delay-1s animated" style={{ backgroundColor: 'gold' }} />
                 </div>
-                <div className="text-center p-0 dish-footer" style={loginContext.loggedIn ? null : editStyle.buttonNone}>
+                <div className="text-center dish-footer" style={loginContext.loggedIn ? null : editStyle.buttonNone}>
                 <CRUD
                     editMode={editMode}
                     editable={editable}

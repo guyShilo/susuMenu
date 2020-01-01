@@ -36,7 +36,6 @@ const EachBranch = ({ branchObj }) => {
         }
     }
     // Defining references for Editable mode
-    const refName = useRef(branchName)
     const refAddress = useRef(branchAddress)
     const refOpening = useRef(branchOpening)
     const refIsKosher = useRef(branchIsKosher)
@@ -54,7 +53,7 @@ const EachBranch = ({ branchObj }) => {
     // Executing delte request to NodeJS server.
     const deleteFromDB = () => {
         const result = window.confirm('Are you sure you want to DELETE', false)
-        axios.delete(`https://susu-menu.herokuapp.com/branches/deleteBranches/${id}`)
+        axios.delete(`https://susu-menu.herokuapp.com/branches/deleteBranches/${branchesState._id}`)
             .then(res => { console.log(res) })
             .catch(err => {
                 console.log(err)
@@ -80,8 +79,7 @@ const EachBranch = ({ branchObj }) => {
     // Handling post method after editable change
     const handleEditable = e => {
         const result = window.confirm('Are you sure you want to EDIT?', false)
-        axios.put(`https://susu-menu.herokuapp.com/branches/patchBranches/${id}`, {
-            branchName: refName.current.innerHTML,
+        axios.put(`https://susu-menu.herokuapp.com/branches/patchBranches/${branchesState._id}`, {
             branchAddress: refAddress.current.innerHTML,
             branchOpening: refOpening.current.innerHTML,
             branchIsKosher: refIsKosher.current.innerHTML,
@@ -99,7 +97,7 @@ const EachBranch = ({ branchObj }) => {
             })
         if (result) {
             alert('Edited')
-            setEditable(false)
+            setEditMode(false)
         }
     }
     return (
@@ -113,8 +111,7 @@ const EachBranch = ({ branchObj }) => {
                     <div className="text-center d-flex flex-column col-sm-5 mt-1">
                         <h4
                             suppressContentEditableWarning={true}
-                            contentEditable={editable}
-                            ref={refName}>{`סניף ${branchesState.branchName}`}</h4>
+                            contentEditable={editable}>{`סניף ${branchesState.branchName}`}</h4>
                     </div>
                     <hr className="bounceInRight animated delay-1s" style={compStyles.hrColor} />
                     <div className="text-right">

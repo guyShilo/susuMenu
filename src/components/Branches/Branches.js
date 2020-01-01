@@ -7,8 +7,8 @@ import BranchesContext from '../Context/BranchesContext'
 import Search from '../../Search'
 
 
-
 const Branches = () => {
+    document.title = 'Susu & Sons | סניפים'
     //Gettin data from context
     const newBranches = useContext(BranchesContext)
     //Setting Branches State

@@ -6,6 +6,7 @@ import DishesContext from '../Context/DishesContext'
 import Search from '../../Search'
 
 const DishLogic = () => {
+    document.title = 'Susu & Sons | מנות'
     // Get dishes data from DishesContext.
     const newDishes = useContext(DishesContext)
     // Initiate dishes state

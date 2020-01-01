@@ -50,17 +50,17 @@ const Header = (props) => {
                 <div className="p-1 mt-2">
                     <Link to="/dishes">
                         <button
-                            className="btn-menu btn-grad p-1 m-1 text-dark"
+                            className="btn-menu btn-grad p-1 m-1 text-light"
                         >לרשימת המנות</button>
                     </Link>
                     <Link to="/branches">
                         <button
-                            className="btn-menu btn-grad p-1 m-1 text-dark"
+                            className="btn-menu btn-grad p-1 m-1 text-light"
                         >סניפים</button>
                     </Link>
                 </div>
                 <div className="title-flex mr-auto bounceInUp animated">
-                    <h1 className="m-2 text-warning">SUSU AND SONS</h1>
+                    <h1 className="m-2 text-dark font-bold">SUSU AND SONS</h1>
                 </div>
             </div>
         </MuiThemeProvider>

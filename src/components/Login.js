@@ -10,6 +10,7 @@ import UserContext from './Context/UserContext'
 
 
 const Login = (props) => {
+    document.title = 'Susu & Sons | התחברות'
     let loggedIn = false
     const loginContext = useContext(UserContext)
     const history = useHistory()
@@ -80,7 +81,6 @@ const Login = (props) => {
 
     useEffect(() => {
         fetchData()
-
         return () => {
             fetchData()
         };
