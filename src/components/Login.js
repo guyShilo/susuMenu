@@ -101,7 +101,7 @@ export const LoginFalse = ({ values, handleChange, handleClick, initialValues })
     return (
         <div>
             <MuiThemeProvider>
-                <div className="fadeIn animated">
+                <div className="">
                     <div className="loginPage " style={{ height: '100vh' }}>
                         <div className="loginForm d-flex flex-row-reverse ml-auto" style={{ width: '70%' }}>
                             {/* <div className="loginMain ml-auto justify-content-center" style={{width: '70%'}}>ddd</div> */}
@@ -109,35 +109,38 @@ export const LoginFalse = ({ values, handleChange, handleClick, initialValues })
                             <div className="rightSide col-sm-8 text-center" style={{ width: '70%', }}>
                                 <form>
                                     <div className="form-group">
-                                        <h2 className="text-dark">SUSU AND SONS</h2>
-                                        <hr className="bg-dark" />
-                                        <label className="text-dark" htmlFor="exampleInputEmail1">Email address</label>
+                                        <h2 className="text-light bounceInRight animated ">SUSU AND SONS</h2>
+                                        <hr className="bg-secondary bounceInRight animated delay-1s" />
+                                        <label className="text-light" htmlFor="exampleInputEmail1">שם משתמש (כתובת דוא״ל)</label>
                                         <input type="email"
                                             name="initialEmail"
-                                            className="form-control"
-                                            placeholder="enter your mail"
+                                            className="form-control text-center"
+                                            placeholder="כתובת דואר אלקטרוני"
                                             dir="ltr"
+                                            required={true}
                                             defaultValue={initialValues.initialEmail}
                                             onChange={handleChange}
                                         />
-                                        <small id="emailHelp" className="form-text text-dark">We'll never share your email with anyone else</small>
-                                        <hr className="bg-dark" />
+                                        <small id="emailHelp" className="form-text text-light">לא לדאוג! לא משתפים את הפרטים שלכם עם אף אחד</small>
+                                        <hr className="bg-secondary bounceInRight animated delay-1s" />
                                     </div>
                                     <div className="form-group">
-                                        <label className="text-dark" htmlFor="exampleInputPassword1">Password</label>
+                                        <label className="text-light" htmlFor="exampleInputPassword1">סיסמה</label>
                                         <input type="password"
                                             name="initialPassword"
-                                            className="form-control"
-                                            placeholder="enter your password"
+                                            className="form-control text-center"
+                                            placeholder="הזן סיסמה"
                                             dir="ltr"
+                                            required={true}
                                             defaultValue={initialValues.initialPassword}
                                             onChange={handleChange}
                                         />
                                     </div>
                                     <RaisedButton
-                                        label="Sign In"
-                                        backgroundColor='rgba(30,33,48,1)'
-                                        labelColor={white}
+                                        label="התחבר"
+                                        backgroundColor='white'
+                                        labelColor='steelblue'
+                                        labelStyle={{fontWeight: 'bold', fontFamily: 'Rubik, sans-serif'}}
                                         className="buttonForm m-2"
                                         onClick={handleClick}
                                     />

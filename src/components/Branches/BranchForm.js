@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import AddBranch from './AddBranch'
 import ConfirmBranch from './ConfirmBranch'
 
-
-
 const BranchForm = () => {
     // Setting a default state for the form component
     const [branchFormState, setBranchFormState] = useState({
-        step: null,
+        step: 0,
         branchName: '',
         branchAddress: '',
         branchOpening: '',

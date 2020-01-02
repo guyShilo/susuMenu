@@ -22,8 +22,7 @@ import { Main } from './Main';
 function App() {
   return (
     <Router history={history}>
-      <div className="App app-container">
-        <Header/>
+      <div className=" app-container">
         <Switch>
           <Route path="/DishExtras" component={DishExtras} />
           <Route path="/addDish" component={DishForm} />
@@ -31,22 +30,26 @@ function App() {
           <Route path="/BurgerTops" component={BurgerTops} />
           <Route path="/dishes" render={() => {
             return (<>
+              <Header />
               <DishLogic />
             </>
             )
           }} />
           <Route path="/branches" exact strict render={() => {
             return (<>
+              <Header />
               <Branches />
             </>
             )
           }} />
           <Route path="/addBranch" component={BranchForm} />
           <Route path="/login" exact strict render={() => {
-            return (<Login />)
+            return (
+              <Login />)
           }} />
           <Route path="/" exact strict render={() => {
             return (<>
+              <Header />
               <Main />
             </>)
           }} />

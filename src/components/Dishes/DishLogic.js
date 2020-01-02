@@ -45,7 +45,9 @@ const DishLogic = () => {
     useEffect(() => {
         getDataFromContext()
         return () => {
-            getDataFromContext()
+            if(dishesState.dishesStorage.length <= 0){
+                console.log('done')
+            }
         };
     }, [])
     const loader = () => {

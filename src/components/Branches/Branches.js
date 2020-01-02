@@ -43,7 +43,9 @@ const Branches = () => {
     useEffect(() => {
         getDataFromContext()
         return () => {
-            getDataFromContext()
+           if(branchesState.branchesStorage.length <= 0){
+               console.log('done')
+           }
         };
     }, [])
     return (

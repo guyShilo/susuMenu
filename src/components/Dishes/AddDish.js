@@ -9,13 +9,13 @@ const AddDish = ({ handleChange, values, nextStep }) => {
     // Defining the styles of the Inputs
     const inputStyle = {
         underlineStyle: {
-            borderColor: 'springgreen',
+            borderColor: 'gold',
         },
         underlineFocusStyle: {
-            borderColor: 'springgreen',
+            borderColor: 'gold',
         },
         floatingTextColor: {
-            color: 'springgreen'
+            color: 'gold'
         },
         textColor: {
             color: 'white'
