@@ -97,7 +97,7 @@ const Dish = ({ dishObj }) => {
         }
     }
     return (
-        <div className=" dishContainer m-2 bounceInUp animated ">
+        <div className=" dishContainer m-2 bounceInUp animated p-1 ">
             <div className="flex-container text-light  text-center w-100 " >
                 <div className="d-flex flex-row-reverse">
                     <button onClick={exitFromEditMode} style={!editMode ? editStyle.buttonNone

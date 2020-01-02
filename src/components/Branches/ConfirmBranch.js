@@ -6,6 +6,8 @@ import '.././confirmForm.css'
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import EachBranch from './EachBranch'
+import GoBack from '../goBack';
 
 
 const ConfirmBranch = ({ values, state, prevStep }) => {
@@ -48,56 +50,26 @@ const ConfirmBranch = ({ values, state, prevStep }) => {
         }
     }
     return (
-        <MuiThemeProvider>
-            <div className="container">
-                <div className="confirm-div m-3 p-3  text-right  bg-dark fadeIn animated ">
-                <small className="text-light p-1">חזור אחורה</small>
-                <button onClick={prevStep}
-                className="btn btn-sm">
-                    <i className="material-icons text-light">exit_to_app</i>
-                    </button>
-                    <List>
-                        <ListItem
-                            style={styles.listItemText}
-                            primaryText="שם הסניף"
-                            secondaryText={values.branchName}
+        <MuiThemeProvider >
+            <div className="container mt-3" >
+                <div className="confirm-div p-1 bg-dark fadeIn animated">
+                    <div className="text-center">
+                        <GoBack
+                            goBack={prevStep} />
+                    </div>
+                    <div className="col-sm-12">
+                        <EachBranch
+                            branchObj={values} />
+                    </div>
+                    <div className="text-center mb-3">
+                        <RaisedButton
+                            label="אשר נתונים"
+                            primary={false}
+                            type="submit"
+                            onClick={postToBranchDB}
                         />
-                        <ListItem
-                            style={styles.listItemText}
-                            primaryText="כתובת הסניף"
-                            secondaryText={values.branchAddress}
-                        />
-                        <ListItem
-                            style={styles.listItemText}
-                            primaryText="שעות פתיחת הסניף"
-                            secondaryText={values.branchOpening}
-                        />
-                        <ListItem
-                            style={styles.listItemText}
-                            primaryText="כשר או לא"
-                            secondaryText={values.branchIsKosher}
-                        />
-                        <ListItem
-                            style={styles.listItemText}
-                            primaryText="סיבוס / תן ביס"
-                            secondaryText={values.branchCBTB}
-                        />
-                        <ListItem
-                            style={styles.listItemText}
-                            primaryText="עסקיות"
-                            secondaryText={values.branchLunchPrice}
-                        />
-                        <div className="text-center d-flex justify-content-center">
-                            <RaisedButton
-                                label="אשר נתונים"
-                                primary={false}
-                                type="submit"
-                                onClick={postToBranchDB}
-                            />
-                        <br />
-                        </div>
-                    </List>
-            </div>
+                    </div>
+                </div>
             </div>
         </MuiThemeProvider >
     )

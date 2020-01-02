@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import '../Dishes/form.css'
+import GoBack from '../goBack';
 
 const AddBranch = ({ nextStep, handleChange, values }) => {
     // Defining the styles of the Inputs
@@ -20,12 +21,22 @@ const AddBranch = ({ nextStep, handleChange, values }) => {
             color: 'white'
         }
     }
+
+    const handleValidation = () => {
+        if(values.dishTitle === ''){
+            return true
+        }
+        else {
+           return false
+        }
+    }
+
     return (
         <MuiThemeProvider>
             <>
                 <form noValidate autoComplete="off">
                     <div className=" mainFormDiv bg-dark fadeIn animated row ">
-                        <br />
+                        <GoBack/>
                         <div className="col-sm-12">
                             <TextField
                                 className="w-100"
@@ -69,7 +80,6 @@ const AddBranch = ({ nextStep, handleChange, values }) => {
                         <div className="col-sm-4">
                             <TextField
                                 className="w-100"
-
                                 floatingLabelStyle={inputStyle.floatingTextColor}
                                 required={true}
                                 underlineStyle={inputStyle.underlineStyle}
@@ -83,7 +93,6 @@ const AddBranch = ({ nextStep, handleChange, values }) => {
                         <div className="col-sm-6">
                             <TextField
                                 className="w-100"
-
                                 floatingLabelStyle={inputStyle.floatingTextColor}
                                 required={true}
                                 underlineStyle={inputStyle.underlineStyle}
@@ -97,7 +106,6 @@ const AddBranch = ({ nextStep, handleChange, values }) => {
                         <div className="col-sm-6">
                             <TextField
                                 className="w-100"
-
                                 floatingLabelStyle={inputStyle.floatingTextColor}
                                 required={true}
                                 underlineStyle={inputStyle.underlineStyle}
@@ -112,6 +120,7 @@ const AddBranch = ({ nextStep, handleChange, values }) => {
                                 label="המשך"
                                 primary={false}
                                 onClick={nextStep}
+                                disabled={handleValidation()}
                                 className="buttonForm"
                             />
                         </div>

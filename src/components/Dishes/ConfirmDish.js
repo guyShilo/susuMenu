@@ -58,25 +58,18 @@ const Confirm = ({ values, state, prevStep }) => {
     }
     return (
         <MuiThemeProvider>
-            <div className="container ">
+            <div className="container mt-3" style={{height: '100%'}}>
                 <div className="confirm-div p-1  bg-dark fadeIn animated  ">
                     <div className="text-center">
                         <GoBack
-                        goBack={prevStep} />
+                            goBack={prevStep} />
                     </div>
-                    {/* <small className="text-light p-1">חזור אחורה</small>
-                    <button onClick={prevStep}
-                        className="btn btn-sm">
-                        <i className="material-icons text-light">exit_to_app</i>
-                    </button> */}
-                    <div className="">
                         <Dish
                             dishObj={values} />
-                    </div>
                     <form className="p-2">
                         <fieldset id="group1" className="text-center">
                             <legend className="form-check-legend" style={styles.listItemText}>האם המנה היא תוספת?</legend>
-                            <div className="d-flex">
+                            <div className="d-flex row">
                                 <div className="p-1 col-sm-12 m-3">
                                     <label className="form-check-label p-2" style={styles.listItemText}>כן</label>
                                     <input className="p-1" type="radio" value={true} name="group1" onChange={handleExtraChange} required />

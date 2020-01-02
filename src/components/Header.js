@@ -7,6 +7,7 @@ import { white } from "material-ui/styles/colors";
 import UserContext from '../components/Context/UserContext'
 import Swal from 'sweetalert2'
 import Search from '../Search'
+import { HardwareDesktopWindows } from "material-ui/svg-icons";
 
 
 const Header = (props) => {
@@ -23,8 +24,8 @@ const Header = (props) => {
             'info',
         )
         setTimeout(() => {
-            history.push('/login')
-        }, 500)
+            window.location.reload()
+        }, 200)
     }
 
     const logIn = () => {
@@ -35,9 +36,9 @@ const Header = (props) => {
 
     const checkPath = () => {
         let path = history.location.pathname
-        let color 
-        if(path == '/branches'){
-             return color = 'springgreen'
+        let color = ''
+        if (path == '/branches') {
+            return color = 'springgreen' 
         } else {
             return color = '#ffc107'
         }
@@ -64,18 +65,18 @@ const Header = (props) => {
                             <Link to="/dishes">
                                 <button
                                     className="btn-menu btn-grad m-1 text-dark"
-                                    style={{backgroundColor: checkPath()}}
+                                    style={{ backgroundColor: checkPath() }}
                                 >מנות</button>
                             </Link>
                             <Link to="/branches">
                                 <button
                                     className="btn-menu btn-grad m-1 text-dark"
-                                    style={{backgroundColor: checkPath()}}
+                                    style={{ backgroundColor: checkPath() }}
                                 >סניפים</button>
                             </Link>
                         </li>
-                        <h1 ref={mainTitle} className="mt-2 list-inline-item col-sm-8 text-center" 
-                        style={{color: checkPath()}}>SUSU AND SONS</h1>
+                        <h1 ref={mainTitle} className="mt-2 list-inline-item col-sm-8 text-center"
+                            style={{ color: checkPath() }}>SUSU AND SONS</h1>
                         <li className="list-inline-item col-sm-2">
                             <button onClick={logOut} className="btn btn-sm text-center"
                                 style={!loginContext.loggedIn ? styles.logOutButton : null}>
@@ -89,7 +90,7 @@ const Header = (props) => {
                         </li>
                     </ul>
                 </list>
-                </section>
+            </section>
         </MuiThemeProvider>
     )
 }

@@ -50,14 +50,14 @@ const Branches = () => {
     }, [])
     return (
         <MuiThemeProvider>
-            <div className="container">
-                <div className="bounceInRight delay-1s animated"    >
+            <div className="container ">
+                <div className="bounceInRight delay-1s animated "    >
                     <Search
                         searchSomething={searchSomething}
                         searchColor={'springgreen'}
                     />
                 </div>
-                <div className="d-flex flex-column align-items-center">
+                <div className="d-flex flex-column align-items-center col-sm-12">
                     {filteredState.filteredStorage.map(branch =>
                         <EachBranch
                             branchObj={branch}

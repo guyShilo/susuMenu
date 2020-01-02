@@ -22,7 +22,7 @@ import { Main } from './Main';
 function App() {
   return (
     <Router history={history}>
-      <div className=" app-container">
+      <div className=" app-container" style={{height: '100%'}}>
         <Switch>
           <Route path="/DishExtras" component={DishExtras} />
           <Route path="/addDish" component={DishForm} />
