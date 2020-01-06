@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import UserContext from '../Context/UserContext'
+import { CRUD } from '../CRUD'
 
 
 
@@ -19,6 +20,7 @@ const EachBranch = ({ branchObj }) => {
     const [editMode, setEditMode] = useState(false)
     // Importing login state from context
     const loginContext = useContext(UserContext)
+    console.log()
 
     // Defining Styles for editing mode
     const compStyles = {
@@ -76,22 +78,18 @@ const EachBranch = ({ branchObj }) => {
         setEditable(true)
         alert('Entering EDIT Mode')
     }
+
     // Handling post method after editable change
     const handleEditable = e => {
         const result = window.confirm('Are you sure you want to EDIT?', false)
         axios.put(`https://susu-menu.herokuapp.com/branches/patchBranches/${branchesState._id}`, {
+            branchName: branchesState.branchName,
             branchAddress: refAddress.current.innerHTML,
             branchOpening: refOpening.current.innerHTML,
             branchIsKosher: refIsKosher.current.innerHTML,
             branchCBTB: refCBTB.current.innerHTML,
             branchLunchPrice: refLunchPrices.current.innerHTML,
-        }).then(function (response) {
-            console.log(response.data);
-            console.log(response.status);
-            console.log(response.statusText);
-            console.log(response.headers);
-            console.log(response.config);
-        })
+        }).then(res => console.log(res))
             .catch(err => {
                 console.log(err)
             })
@@ -102,8 +100,8 @@ const EachBranch = ({ branchObj }) => {
     }
     return (
         <>
-            <div className="w-75">
-                <div className="branch-box m-3 p-3 text-right text-light bounceInUp animated">
+            <div className="w-75 m-auto">
+                <div className="branch-box mb-2 p-3 text-right text-light bounceInUp animated">
                     <div className="text-left">
                         <button onClick={exitFromEditMode} style={!editMode ? compStyles.buttonNone : { background: 'none', border: 'none', outlineColor: 'white' }}>
                             <i className="btn material-icons text-light text-center">exit_to_app</i></button>
@@ -152,13 +150,15 @@ const EachBranch = ({ branchObj }) => {
                         </span>
                     </div>
                     <hr className="bounceInRight animated delay-1s" style={compStyles.hrColor} />
-                    <div className="text-center p-1 dish-footer " style={loginContext.loggedIn ? null : compStyles.buttonNone}>
-                        <button onClick={deleteFromDB} style={{ background: 'none', border: 'none', outlineColor: 'white', }}><i className="btn material-icons text-danger text-center">delete_forever</i></button>
-                        <button onClick={handleEditable} style={{ background: 'none', border: 'none', outlineColor: 'white' }}><i className="btn material-icons text-primary text-center">save</i></button>
-                        <button onClick={editButton} style={{ background: 'none', border: 'none', outlineColor: 'white' }}><i className="btn material-icons text-warning text-center">edit</i></button>
-                        <Link to="/addBranch">
-                            <button style={{ background: 'none', border: 'none', outlineColor: 'white' }}><i className="btn material-icons text-center text-success">add</i></button>
-                        </Link>
+                    <div className="d-flex justify-content-center branch-footer" style={loginContext.loggedIn ? null : compStyles.buttonNone}>
+                        <CRUD
+                            editMode={editMode}
+                            editable={editable}
+                            deleteFromDB={deleteFromDB}
+                            handleEditable={handleEditable}
+                            editButton={editButton}
+                            componentRoute='/addBranch'
+                        />
                     </div>
                 </div>
             </div>

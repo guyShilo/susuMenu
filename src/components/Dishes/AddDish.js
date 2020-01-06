@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import './form.css'
 import GoBack from '../goBack';
 
-const AddDish = ({ handleChange, values, nextStep }) => {
+const AddDish = ({ handleChange, values, nextStep, exitModalButton }) => {
     // Defining the styles of the Inputs
     const inputStyle = {
         underlineStyle: {
@@ -19,25 +19,31 @@ const AddDish = ({ handleChange, values, nextStep }) => {
         },
         textColor: {
             color: 'white'
-        }   
+        }
     }
-    
+
     const handleValidation = () => {
-        if(values.dishTitle === ''){
+        if (values.dishTitle === '') {
             return true
         }
         else {
-           return false
+            return false
         }
     }
 
     return (
         <MuiThemeProvider>
-            <div>
-                <GoBack />
-                <form noValidate autoComplete="off">
-                    <div className="mainFormDiv p-3 bg-dark fadeIn animated row">
-                        <br />
+            <>
+                <div className="mainFormDiv p-1 bg-dark fadeIn animated">
+                <div className="text-right m-1">
+                            <button onClick={exitModalButton} className="btn btn-dark btn-sm ">
+                                <i className="material-icons text-center" >exit_to_app</i>
+                                <br />
+                                <small>חזור אחורה</small>
+                            </button>
+                        </div>
+                    <form noValidate autoComplete="off">
+                    <div className="row p-2 m-2">
                         <div className="col-sm-12">
                             <TextField
                                 className="w-100"
@@ -126,10 +132,11 @@ const AddDish = ({ handleChange, values, nextStep }) => {
                                 disabled={handleValidation()}
                                 onClick={nextStep}
                             />
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
+                </>
         </MuiThemeProvider>
     )
 }

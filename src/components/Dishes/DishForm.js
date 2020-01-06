@@ -3,7 +3,7 @@ import AddDish from './AddDish'
 import Confirm from './ConfirmDish'
 
 
-const DishForm = () => {
+const DishForm = ({exitModalButton}) => {
     document.title = 'Susu & Sons | הוסף מנה'
     // Setting a default state for the form component
     const [dishFormState, setDishFormState] = useState({
@@ -61,6 +61,7 @@ const DishForm = () => {
         case 0:
             return <div className="flex d-flex flex-row justify-content-center m-3 text-center">
                 <AddDish
+                    exitModalButton={exitModalButton}
                     handleChange={handleChange}
                     values={dishFormState}
                     nextStep={nextStep}

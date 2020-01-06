@@ -15,8 +15,8 @@ import Login from './components/Login'
 import history from './history'
 import ConfirmDish from './components/Dishes/ConfirmDish';
 import NoMatch from './NoMatch';
-import { BurgerTops } from './components/Dishes/BurgerTops';
 import { Main } from './Main';
+import { RegisterUser } from './components/RegisterUser';
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           <Route path="/DishExtras" component={DishExtras} />
           <Route path="/addDish" component={DishForm} />
           <Route path="/confirmDish" component={ConfirmDish} />
-          <Route path="/BurgerTops" component={BurgerTops} />
+          <Route path="/RegisterUser" component={RegisterUser} />
           <Route path="/dishes" render={() => {
             return (<>
               <Header />

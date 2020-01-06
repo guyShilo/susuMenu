@@ -140,7 +140,7 @@ export const LoginFalse = ({ values, handleChange, handleClick, initialValues })
                                         label="התחבר"
                                         backgroundColor='white'
                                         labelColor='steelblue'
-                                        labelStyle={{fontWeight: 'bold', fontFamily: 'Rubik, sans-serif'}}
+                                        labelStyle={{ fontWeight: 'bold', fontFamily: 'Rubik, sans-serif' }}
                                         className="buttonForm m-2"
                                         onClick={handleClick}
                                     />
@@ -153,36 +153,4 @@ export const LoginFalse = ({ values, handleChange, handleClick, initialValues })
         </div>
     )
 }
-
-export const LoginTrue = (props) => {
-    console.log(props)
-    return (
-        <div>
-            <MuiThemeProvider>
-                <div className="bounceInUp animated">
-                    <div className="loginPage " style={{ height: '100vh' }}>
-                        <div className="loginForm d-flex flex-row-reverse ml-auto" style={{ width: '70%' }}>
-                            {/* <div className="loginMain ml-auto justify-content-center" style={{width: '70%'}}>ddd</div> */}
-                            <div className="leftSide col-sm-4 flex-shrink-1" style={{ width: '70%', }}></div>
-                            <div className="rightSide col-sm-8 text-center" style={{ width: '70%', }}>
-                                <div style={{ height: '20%' }}>
-                                    <RaisedButton
-                                        label="Sign In"
-                                        backgroundColor='rgba(30,33,48,1)'
-                                        labelColor={white}
-                                        className="buttonForm"
-                                        onClick={null}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </MuiThemeProvider>
-        </div>
-    )
-}
-
-
-
 export default withRouter(Login)

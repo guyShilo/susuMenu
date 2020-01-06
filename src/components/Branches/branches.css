@@ -20,6 +20,11 @@
     font-weight: bold;
 }
 
+.branch-footer button {
+    background: none;
+    border: none;
+}
+
 @media only screen 
     and (min-device-width: 375px) 
     and (min-device-height: 812px) 

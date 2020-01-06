@@ -13,3 +13,13 @@ body {
   color: whitesmoke;
   font-size: 50px;
 }
+
+.basicModal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 10;
+}

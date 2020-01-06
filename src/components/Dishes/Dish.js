@@ -9,7 +9,7 @@ import { CRUD } from "../CRUD";
 
 
 
-const Dish = ({ dishObj }) => {
+const Dish = ({ dishObj, floatingComponent }) => {
     const { title, description, price, img, sizes, allergic, rest, delivery, id } = dishObj;
     // Setting up the Dish State
     const [dishState, setDishState] = useState(dishObj)
@@ -154,7 +154,9 @@ const Dish = ({ dishObj }) => {
                     editable={editable}
                     deleteFromDB={deleteFromDB}
                     handleEditable={handleEditable}
-                    editButton={editButton}/>
+                    editButton={editButton}
+                    componentRoute='/addDish'
+                    />
                 </div>
             </div>
         </div>

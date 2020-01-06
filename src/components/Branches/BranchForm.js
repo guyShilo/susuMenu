@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AddBranch from './AddBranch'
 import ConfirmBranch from './ConfirmBranch'
 
-const BranchForm = () => {
+const BranchForm = ({exitModalButton}) => {
     // Setting a default state for the form component
     const [branchFormState, setBranchFormState] = useState({
         step: 0,
@@ -41,6 +41,7 @@ const BranchForm = () => {
         case 0: return (
             <div className="flex d-flex flex-row justify-content-center m-3 text-center ">
                 <AddBranch
+                    exitModalButton={exitModalButton}
                     handleChange={handleChange}
                     nextStep={nextStep}
                     prevStep={prevStep}
