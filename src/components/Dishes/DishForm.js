@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState } from 'react';
 import AddDish from './AddDish'
 import Confirm from './ConfirmDish'
 
 
-const DishForm = ({exitModalButton}) => {
+const DishForm = ({ exitModalButton }) => {
     document.title = 'Susu & Sons | הוסף מנה'
     // Setting a default state for the form component
     const [dishFormState, setDishFormState] = useState({
@@ -19,14 +19,14 @@ const DishForm = ({exitModalButton}) => {
     // Getting the input and value from AddDish component
     const handleChange = input => e => {
         e.preventDefault()
-            setDishFormState({
-                ...dishFormState,
-                [input]: e.target.value,
-            });
+        setDishFormState({
+            ...dishFormState,
+            [input]: e.target.value,
+        });
         let validateArray = []
-        validateArray.push({[input]: e.target.value})
+        validateArray.push({ [input]: e.target.value })
         validateArray.forEach(element => {
-            if(element){
+            if (element) {
                 console.log('full')
             }
             else {
@@ -67,7 +67,6 @@ const DishForm = ({exitModalButton}) => {
                     nextStep={nextStep}
                 />
             </div>
-            break;
     }
 }
 

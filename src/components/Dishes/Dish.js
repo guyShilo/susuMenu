@@ -9,7 +9,7 @@ import { CRUD } from "../CRUD";
 
 
 
-const Dish = ({ dishObj, floatingComponent }) => {
+const Dish = ({ dishObj, exitModalButton }) => {
     const { title, description, price, img, sizes, allergic, rest, delivery, id } = dishObj;
     // Setting up the Dish State
     const [dishState, setDishState] = useState(dishObj)
@@ -50,9 +50,9 @@ const Dish = ({ dishObj, floatingComponent }) => {
     }
     // Executing delte request to NodeJS server.
     const deleteFromDB = () => {
-        const result = window.confirm('Are you sure you want to DELETE', false)
+        const result = window.confirm('האם את/ה בטוח שאת/ה רוצה למחוק את המנה?', false)
         axios.delete(`https://susu-menu.herokuapp.com/dishes/deleteDishes/${dishState._id}`)
-            .then(res => {console.log(res)})
+            .then(res => { console.log(res) })
             .catch(err => {
                 console.log(err)
             })
@@ -98,6 +98,11 @@ const Dish = ({ dishObj, floatingComponent }) => {
     }
     return (
         <div className=" dishContainer m-2 bounceInUp animated p-1 ">
+            {exitModalButton ? <button onClick={exitModalButton} className="btn btn-dark btn-sm ">
+                <i className="material-icons text-center" >exit_to_app</i>
+                <br />
+                <small>חזור אחורה</small>
+            </button> : null}
             <div className="flex-container text-light  text-center w-100 " >
                 <div className="d-flex flex-row-reverse">
                     <button onClick={exitFromEditMode} style={!editMode ? editStyle.buttonNone
@@ -149,13 +154,13 @@ const Dish = ({ dishObj, floatingComponent }) => {
                     <hr className="bounceInRight delay-1s animated" style={{ backgroundColor: 'gold' }} />
                 </div>
                 <div className="text-center dish-footer" style={loginContext.loggedIn ? null : editStyle.buttonNone}>
-                <CRUD
-                    editMode={editMode}
-                    editable={editable}
-                    deleteFromDB={deleteFromDB}
-                    handleEditable={handleEditable}
-                    editButton={editButton}
-                    componentRoute='/addDish'
+                    <CRUD
+                        editMode={editMode}
+                        editable={editable}
+                        deleteFromDB={deleteFromDB}
+                        handleEditable={handleEditable}
+                        editButton={editButton}
+                        componentRoute='/addDish'
                     />
                 </div>
             </div>

@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react'
 import './login.css'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import RaisedButton from 'material-ui/RaisedButton';
-import { white } from "material-ui/styles/colors";
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { withRouter, useHistory } from 'react-router';

@@ -26,16 +26,16 @@ const DishLogic = () => {
                 dishesStorage: data
             });
             setFilteredState({
-                filteredStorage: data.filter(dish => dish.isExtra != true)
+                filteredStorage: data.filter(dish => dish.isExtra !== true)
             });
         })
     }
     // Getting the search term from the Search component and setting it to filtered dishes.
     const searchSomething = (term) => {
-        const result = dishesState.dishesStorage.filter(dish => dish.dishTitle.indexOf(term) != -1);
+        const result = dishesState.dishesStorage.filter(dish => dish.dishTitle.indexOf(term) !== -1);
         if (!term[0]) {
             setFilteredState({
-                filteredStorage: dishesState.dishesStorage.filter(dish => dish.isExtra != true)
+                filteredStorage: dishesState.dishesStorage.filter(dish => dish.isExtra !== true)
             })
         } else {
             setFilteredState({

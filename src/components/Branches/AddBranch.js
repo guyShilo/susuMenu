@@ -3,7 +3,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import '../Dishes/form.css'
-import GoBack from '../goBack';
 
 const AddBranch = ({ nextStep, handleChange, values, exitModalButton }) => {
     // Defining the styles of the Inputs

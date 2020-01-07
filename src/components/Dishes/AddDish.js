@@ -3,7 +3,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import './form.css'
-import GoBack from '../goBack';
 
 const AddDish = ({ handleChange, values, nextStep, exitModalButton }) => {
     // Defining the styles of the Inputs

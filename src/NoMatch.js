@@ -5,11 +5,11 @@ const NoMatch = () => {
     return (
         <div className="container">
         <div className="w-100 text-center mt-5">
+        <h1 className="m-2 text-light noMatchText">SUSU AND SONS</h1>
             <div className="title-flex mr-auto bounceInUp animated">
-                <h1 className="m-2">SUSU AND SONS</h1>
-                <h4 className="noMatchText text-dark">שגיאה 404</h4>
-                <h2 className="noMatchText text-dark">הדף שניסית להגיע אליו עדיין לא קיים</h2>
-                <h2 style={{fontSize: '85px'}}>😢</h2>
+                <h2 className="noMatchText text-warning ">שגיאה 404</h2>
+                <h4 className="noMatchText text-warning ">הדף שניסית להגיע אליו עדיין לא קיים</h4>
+                <h4 style={{fontSize: '85px'}}>😢</h4>
             </div>
         </div>
         </div>

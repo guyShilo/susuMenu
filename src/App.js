@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './App.css';
 import Header from "./components/Header";
 import DishLogic from './components/Dishes/DishLogic';
@@ -16,10 +16,13 @@ import history from './history'
 import ConfirmDish from './components/Dishes/ConfirmDish';
 import NoMatch from './NoMatch';
 import { Main } from './Main';
-import { RegisterUser } from './components/RegisterUser';
+import {AdminPage} from './components/AdminManagment/AdminPage'
+import UserContext from './components/Context/UserContext'
 
 
 function App() {
+  const loginContext = useContext(UserContext)
+
   return (
     <Router history={history}>
       <div className=" app-container" style={{height: '100%'}}>
@@ -27,7 +30,14 @@ function App() {
           <Route path="/DishExtras" component={DishExtras} />
           <Route path="/addDish" component={DishForm} />
           <Route path="/confirmDish" component={ConfirmDish} />
-          <Route path="/RegisterUser" component={RegisterUser} />
+          <Route path="/adminPage" render={() =>  {
+            return(
+            <>
+              <Header/>
+             <AdminPage loginStatus={loginContext.loggedIn}/>
+            </>
+            )
+          } } />
           <Route path="/dishes" render={() => {
             return (<>
               <Header />

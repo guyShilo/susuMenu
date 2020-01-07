@@ -1,13 +1,9 @@
 import React, { useContext, useRef } from "react";
 import "./header.css"
 import { Link, useHistory } from 'react-router-dom'
-import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { white } from "material-ui/styles/colors";
 import UserContext from '../components/Context/UserContext'
 import Swal from 'sweetalert2'
-import Search from '../Search'
-import { HardwareDesktopWindows } from "material-ui/svg-icons";
 
 
 const Header = (props) => {
@@ -37,10 +33,12 @@ const Header = (props) => {
     const checkPath = () => {
         let path = history.location.pathname
         let color = ''
-        if (path == '/branches') {
-            return color = 'springgreen' 
-        } else {
+        if (path === '/branches') {
+            return color = 'springgreen'
+        } else if (path === '/dishes') {
             return color = '#ffc107'
+        } else {
+            return color = '#5bc0de'
         }
     }
 
@@ -58,7 +56,7 @@ const Header = (props) => {
     }
     return (
         <MuiThemeProvider>
-            <section className="header-flex">
+            <section className="header-flex bounceInRight animated">
                 <list className="list-inline header-flex">
                     <ul className="d-flex justify-content-between p-0 col-sm-12">
                         <li className="list-inline-item mt-2 row col-sm-2" >
@@ -87,6 +85,12 @@ const Header = (props) => {
                                 <i className="material-icons text-center" style={styles.currentColor}>supervised_user_circle</i>
                                 <small className="row m-1" style={styles.currentColor}>התחבר</small>
                             </button>
+                            <Link to="/adminPage">
+                              <button className="btn btn-sm text-center"
+                                style={!loginContext.loggedIn ? styles.logOutButton : null}>
+                                <small className="row m-1" style={styles.currentColor}>עמוד מנהל</small>
+                                <i className="material-icons text-center" style={styles.currentColor}>settings_applications</i></button>
+                                </Link>
                         </li>
                     </ul>
                 </list>

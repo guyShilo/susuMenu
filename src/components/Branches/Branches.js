@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import './branches.css'
 import EachBranch from './EachBranch'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import axios from 'axios';
 import BranchesContext from '../Context/BranchesContext'
 import Search from '../../Search'
 import BranchForm from '../Branches/BranchForm'
@@ -30,8 +29,8 @@ const Branches = () => {
     }
     // Getting the search term fro the Search component
     const searchSomething = (term) => {
-        const result = branchesState.branchesStorage.filter(branch => branch.branchName.indexOf(term) != -1);
-        if (result.length == 0) {
+        const result = branchesState.branchesStorage.filter(branch => branch.branchName.indexOf(term) !== -1);
+        if (result.length === 0) {
             setFilteredState({
                 filteredStorage: branchesState.branchesStorage
             })

@@ -8,7 +8,6 @@ import { CRUD } from '../CRUD'
 
 
 const EachBranch = ({ branchObj }) => {
-
     const { branchName, branchAddress, branchOpening, branchIsKosher, branchCBTB, branchLunchPrice, id } = branchObj;
     const history = useHistory()
 
@@ -20,7 +19,6 @@ const EachBranch = ({ branchObj }) => {
     const [editMode, setEditMode] = useState(false)
     // Importing login state from context
     const loginContext = useContext(UserContext)
-    console.log()
 
     // Defining Styles for editing mode
     const compStyles = {
@@ -150,7 +148,7 @@ const EachBranch = ({ branchObj }) => {
                         </span>
                     </div>
                     <hr className="bounceInRight animated delay-1s" style={compStyles.hrColor} />
-                    <div className="d-flex justify-content-center branch-footer" style={loginContext.loggedIn ? null : compStyles.buttonNone}>
+                    <div className="d-flex justify-content-center branch-footer" style={!loginContext.loggedIn ? null : compStyles.buttonNone}>
                         <CRUD
                             editMode={editMode}
                             editable={editable}

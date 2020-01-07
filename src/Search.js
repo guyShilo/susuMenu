@@ -1,6 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
-import axios from 'axios';
-import DishesContext from './components/Context/DishesContext'
+import React from 'react';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import './components/Dishes/dishLogic.css'
