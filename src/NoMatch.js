@@ -9,6 +9,7 @@ const NoMatch = () => {
             <div className="title-flex mr-auto bounceInUp animated">
                 <h2 className="noMatchText text-warning ">שגיאה 404</h2>
                 <h4 className="noMatchText text-warning ">הדף שניסית להגיע אליו עדיין לא קיים</h4>
+                <h3 className="text-danger ">או שאין לך הרשאות...</h3>
                 <h4 style={{fontSize: '85px'}}>😢</h4>
             </div>
         </div>

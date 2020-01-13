@@ -6,9 +6,6 @@ import DishesContext from '../Context/DishesContext'
 
 export const EditDishes = () => {
     const [currentState, setCurrentState] = useState(0)
-
-
-
     const newDishes = useContext(DishesContext)
     const [dishesState, setDishesState] = useState({
         dishesStorage: []
@@ -29,7 +26,7 @@ export const EditDishes = () => {
 
     return (
         <div className="">
-            <div className="text-right">
+            <div className="text-right text-light">
                 <h4>{`כמות המנות בתפריט:  ${dishesState.dishesStorage.length}`}</h4>
                 {dishesState.dishesStorage.map(dish =>
                     <EachProduct obj={dish} key={dish._id}

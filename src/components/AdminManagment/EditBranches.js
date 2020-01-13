@@ -26,7 +26,7 @@ export const EditBranches = () => {
     }, [])
     return (
         <div className="">
-            <div className="text-right">
+            <div className="text-right text-light">
                 <h4>{`כמות הסניפים בתפריט:  ${branchesState.branchesStorage.length}`}</h4>
                 {branchesState.branchesStorage.map(branch =>
                     <EachProduct obj={branch} key={branch._id}

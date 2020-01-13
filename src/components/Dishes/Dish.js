@@ -96,6 +96,7 @@ const Dish = ({ dishObj, exitModalButton }) => {
             setEditMode(false)
         }
     }
+
     return (
         <div className=" dishContainer m-2 bounceInUp animated p-1 ">
             {exitModalButton ? <button onClick={exitModalButton} className="btn btn-dark btn-sm ">
@@ -153,7 +154,8 @@ const Dish = ({ dishObj, exitModalButton }) => {
                     </div>
                     <hr className="bounceInRight delay-1s animated" style={{ backgroundColor: 'gold' }} />
                 </div>
-                <div className="text-center dish-footer" style={loginContext.loggedIn ? null : editStyle.buttonNone}>
+                <div className="text-center dish-footer" style={loginContext.loggedIn && history.location.pathname ===
+                    '/adminPage' ? null : editStyle.buttonNone}>
                     <CRUD
                         editMode={editMode}
                         editable={editable}

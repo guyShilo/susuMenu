@@ -56,7 +56,7 @@ const Header = (props) => {
     }
     return (
         <MuiThemeProvider>
-            <section className="header-flex bounceInRight animated">
+            <section className="header-flex fadeIn animated">
                 <list className="list-inline header-flex">
                     <ul className="d-flex justify-content-between p-0 col-sm-12">
                         <li className="list-inline-item mt-2 row col-sm-2" >

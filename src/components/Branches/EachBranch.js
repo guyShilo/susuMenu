@@ -4,10 +4,11 @@ import { Link, useHistory } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import UserContext from '../Context/UserContext'
 import { CRUD } from '../CRUD'
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+import  BranchesMap from './BranchesMap'
 
 
-
-const EachBranch = ({ branchObj }) => {
+const EachBranch = ({ branchObj, exitModalButton, google }) => {
     const { branchName, branchAddress, branchOpening, branchIsKosher, branchCBTB, branchLunchPrice, id } = branchObj;
     const history = useHistory()
 
@@ -96,10 +97,18 @@ const EachBranch = ({ branchObj }) => {
             setEditMode(false)
         }
     }
+
+
+
     return (
         <>
             <div className="w-75 m-auto">
                 <div className="branch-box mb-2 p-3 text-right text-light bounceInUp animated">
+                    {exitModalButton ? <button onClick={exitModalButton} className="btn btn-dark btn-sm ">
+                        <i className="material-icons text-center" >exit_to_app</i>
+                        <br />
+                        <small>חזור אחורה</small>
+                    </button> : null}
                     <div className="text-left">
                         <button onClick={exitFromEditMode} style={!editMode ? compStyles.buttonNone : { background: 'none', border: 'none', outlineColor: 'white' }}>
                             <i className="btn material-icons text-light text-center">exit_to_app</i></button>
@@ -110,6 +119,9 @@ const EachBranch = ({ branchObj }) => {
                             contentEditable={editable}>{`סניף ${branchesState.branchName}`}</h4>
                     </div>
                     <hr className="bounceInRight animated delay-1s" style={compStyles.hrColor} />
+                    <div className="col-sm-5 mr-auto" style={{width: '250px', height: '250px'}}>
+                            <BranchesMap />
+                        </div>
                     <div className="text-right">
                         <span>
                             <label>כתובת הסניף:</label> <p
@@ -148,14 +160,15 @@ const EachBranch = ({ branchObj }) => {
                         </span>
                     </div>
                     <hr className="bounceInRight animated delay-1s" style={compStyles.hrColor} />
-                    <div className="d-flex justify-content-center branch-footer" style={!loginContext.loggedIn ? null : compStyles.buttonNone}>
+                    <div className=" text-center branch-footer"
+                        style={history.location.pathname === '/adminPage' ? { display: 'flex', justifyContent: 'center' } : compStyles.buttonNone}>
                         <CRUD
                             editMode={editMode}
                             editable={editable}
                             deleteFromDB={deleteFromDB}
                             handleEditable={handleEditable}
                             editButton={editButton}
-                            componentRoute='/addBranch'
+                            componentRoute='/addDish'
                         />
                     </div>
                 </div>
@@ -163,5 +176,7 @@ const EachBranch = ({ branchObj }) => {
         </>
     )
 }
+
+
 
 export default EachBranch
